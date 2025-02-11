@@ -6,7 +6,7 @@ async function bootstrap() {
 
   // Enable CORS for frontend to communicate with the backend
   app.enableCors({
-    origin: 'http://localhost:3000', // Frontend URL (adjust if necessary)
+    origin: 'https://comfy-tartufo-efe122.netlify.app/', // Frontend URL (adjust if necessary)
     methods: 'GET, POST, PUT, DELETE', // Allow the necessary HTTP methods
     allowedHeaders: 'Content-Type, Authorization', // Allow necessary headers
   });
