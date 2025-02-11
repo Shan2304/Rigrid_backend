@@ -2,6 +2,8 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { RegridService } from '../services/regrid.service';
 
 @Controller('regrid')
+  getRoot() {
+  return { message: 'Backend is running!' };
 export class RegridController {
   constructor(private readonly regridService: RegridService) {}
 
