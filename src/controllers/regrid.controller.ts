@@ -5,13 +5,13 @@ import { RegridService } from '../services/regrid.service';
 export class RegridController {
   constructor(private readonly regridService: RegridService) {}
 
-  // ✅ Test Route to Check if Backend is Running
+  
   @Get()
   getRoot() {
     return { message: 'Backend is running!' };
   }
 
-  // ✅ Parcel Search Route
+  
   @Get('parcels')
   async getParcels(@Query('lat') lat: string, @Query('lon') lon: string) {
     console.log('Received request:', { lat, lon });
