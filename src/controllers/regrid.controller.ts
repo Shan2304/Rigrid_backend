@@ -2,21 +2,28 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { RegridService } from '../services/regrid.service';
 
 @Controller('regrid')
-  getRoot() {
-  return { message: 'Backend is running!' };
 export class RegridController {
   constructor(private readonly regridService: RegridService) {}
 
+  // ✅ Test Route to Check if Backend is Running
+  @Get()
+  getRoot() {
+    return { message: 'Backend is running!' };
+  }
+
+  // ✅ Parcel Search Route
   @Get('parcels')
   async getParcels(@Query('lat') lat: string, @Query('lon') lon: string) {
     console.log('Received request:', { lat, lon });
 
     if (!lat || !lon) {
+      console.log("Missing latitude or longitude");
       return { message: 'Latitude and Longitude are required', parcels: [] };
     }
 
     try {
       const result = await this.regridService.getParcels(lat, lon);
+      console.log("Result from Regrid API:", result);
       return result;
     } catch (error) {
       console.error('Controller Error:', error.message);
